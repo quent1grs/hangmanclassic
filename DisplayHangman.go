@@ -1,4 +1,4 @@
-package hangman
+package hangmanclassic
 
 import (
 	"bufio"
@@ -16,7 +16,6 @@ func Displayhangman() {
 	}
 	defer file.Close()
 
-	// Map pour stocker le numéro de l'étape et le nombre d'essais correspondant
 	etapesPendu := make(map[int]int)
 
 	scanner := bufio.NewScanner(file)
@@ -40,13 +39,11 @@ func Displayhangman() {
 		etapesPendu[numEtape] = nbEssais
 	}
 
-	// Vérifier si des étapes ont été chargées
 	if len(etapesPendu) == 0 {
 		fmt.Println("Aucune étape chargée depuis le fichier.")
 		return
 	}
 
-	// Exemple d'utilisation : affichage du nombre d'essais pour chaque étape
 	for numEtape, nbEssais := range etapesPendu {
 		fmt.Printf("Étape %d : %d essais\n", numEtape, nbEssais)
 	}
